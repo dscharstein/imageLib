@@ -359,7 +359,7 @@ void ReadFilePGM(CByteImage& img, const char* filename)
     if (stream == 0)
         throw CError("ReadFilePGM: could not open %s", filename);
 
-	int width, height, nBands;
+	int width = 0, height = 0, nBands = 0;
 	const char *dot = strrchr(filename, '.');
 	int isGray = 0, isFloat = 0;
 
