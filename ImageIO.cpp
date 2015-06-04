@@ -75,11 +75,11 @@ const int TargaRawColormap	= 1;
 const int TargaRawRGB		= 2;
 const int TargaRawBW		= 3;
 const int TargaRunColormap	= 9;
-const int TargaRunRGB		= 10;
+//const int TargaRunRGB		= 10;
 const int TargaRunBW		= 11;
 
 // Descriptor fields
-const int TargaAttrBits     = 15;
+//const int TargaAttrBits     = 15;
 const int TargaScreenOrigin = (1<<5);
 const int TargaCMapSize		= 256;
 const int TargaCMapBands    = 3;
