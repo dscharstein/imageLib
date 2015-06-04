@@ -22,7 +22,7 @@ using namespace std;
 
 struct CError : public exception
 {
-    CError(const char* msg)                       { snprintf(message, MSGLEN, msg); }
+    CError(const char* msg)                       { snprintf(message, MSGLEN, "%s", msg); }
     CError(const char* fmt, int d)                { snprintf(message, MSGLEN, fmt, d); }
     CError(const char* fmt, float f)              { snprintf(message, MSGLEN, fmt, f); }
     CError(const char* fmt, const char *s)        { snprintf(message, MSGLEN, fmt, s); }
