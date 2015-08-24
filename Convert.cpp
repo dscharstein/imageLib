@@ -199,6 +199,23 @@ void CopyPixelsInstantiate(CImageOf<T1>& s1)
     CopyPixels(s1, i2);
     CopyPixels(s1, f2);
 }
+
+template <class T>
+int InstantiateConvert(CImageOf<T> src)
+{
+    CopyPixelsInstantiate(src);
+    CImageOf<T> r1 = ConvertToRGBA(src);
+    CImageOf<T> r2 = ConvertToGray(src);
+    BandSelect(r1, r2, 0, 0);
+    return (int)r1.Pixel(0, 0, 0);
+}
+
+void InstantiateAllConverts(void)
+{
+    InstantiateConvert(CByteImage());
+    InstantiateConvert(CIntImage());
+    InstantiateConvert(CFloatImage());
+}
 */
 // ... so do it like this instead:
 template void ScaleAndOffset(CByteImage&  src, CByteImage&  dst, float s, float o);
@@ -219,21 +236,10 @@ template void BandSelect(CByteImage&  src, CByteImage&  dst, int sBand, int dBan
 template void BandSelect(CIntImage&   src, CIntImage&   dst, int sBand, int dBand);
 template void BandSelect(CFloatImage& src, CFloatImage& dst, int sBand, int dBand);
 
+template CByteImage  ConvertToRGBA(CByteImage  src);
+template CIntImage   ConvertToRGBA(CIntImage   src);
+template CFloatImage ConvertToRGBA(CFloatImage src);
 
-template <class T>
-int InstantiateConvert(CImageOf<T> src)
-{
-    //CopyPixelsInstantiate(src);
-    CImageOf<T> r1 = ConvertToRGBA(src);
-    CImageOf<T> r2 = ConvertToGray(src);
-    //BandSelect(r1, r2, 0, 0);
-    return (int)r1.Pixel(0, 0, 0);
-}
-
-void InstantiateAllConverts(void)
-{
-    InstantiateConvert(CByteImage());
-    InstantiateConvert(CIntImage());
-    InstantiateConvert(CFloatImage());
-}
-
+template CByteImage  ConvertToGray(CByteImage  src);
+template CIntImage   ConvertToGray(CIntImage   src);
+template CFloatImage ConvertToGray(CFloatImage src);

@@ -1,4 +1,9 @@
-SRC = Convert.cpp Convolve.cpp Image.cpp ImageIO.cpp ImageIOpng.cpp RefCntMem.cpp flowIO.cpp
+# Makefile for imageLib
+
+# you can compile versions for different architectures, and with and without debug (-g) info
+# using "make clean; make" on different machines and with DBG commented in/out
+
+SRC = Convert.cpp Convolve.cpp Image.cpp ImageIO.cpp ImageIOpng.cpp RefCntMem.cpp
 
 DBG = -g
 CC = g++
@@ -34,4 +39,3 @@ Image.o: Image.h RefCntMem.h Error.h
 ImageIO.o: Image.h RefCntMem.h Error.h ImageIO.h
 ImageIOpng.o: Image.h RefCntMem.h Error.h
 RefCntMem.o: RefCntMem.h
-flowIO.o: imageLib.h Error.h Image.h RefCntMem.h ImageIO.h Convert.h flowIO.h
