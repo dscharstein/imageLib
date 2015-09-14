@@ -1,5 +1,8 @@
 /*
 
+*** Part of the imageLib code originates from StereoMatcher 1.0, which is
+*** covered by the following license agreement:
+
 StereoMatcher 1.0
 
 This Microsoft Research Source Code License Agreement ("MSR-SCLA") is
