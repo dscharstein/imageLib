@@ -116,7 +116,8 @@ void ReadFilePNG(CByteImage& img, const char* filename)
     // first check the eight byte PNG signature
     png_byte pbSig[8];
     fread(pbSig, 1, 8, stream);
-	if (!png_check_sig(pbSig, 8)) {
+    //if (!png_check_sig(pbSig, 8)) { // deprecated, see http://www.libpng.org/pub/png/src/libpng-1.2.x-to-1.4.x-summary.txt
+    if (png_sig_cmp(pbSig, 0, 8)) {
         fclose(stream);
         throw CError("ReadFilePNG: invalid PNG signature");
 	}
